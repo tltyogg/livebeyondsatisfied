@@ -1,8 +1,8 @@
 <?php
 /**
- * Glam.
+ * livebeyondsatisfied.
  *
- * @package      Glam
+ * @package      livebeyondsatisfied
  * @link         http://restored316designs.com/themes
  * @author       Lauren Gaige // Restored 316 LLC
  * @copyright    Copyright (c) 2015, Restored 316 LLC, Released 02/03/2016
@@ -19,7 +19,7 @@ add_theme_support( 'html5' );
 add_theme_support( 'genesis-responsive-viewport' );
 
 //* Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'Glam' );
+define( 'CHILD_THEME_NAME', 'livebeyondsatisfied' );
 define( 'CHILD_THEME_URL', 'http://restored316designs.com' );
 define( 'CHILD_THEME_VERSION', '1.0.3' );
 
@@ -36,9 +36,9 @@ require_once( get_stylesheet_directory() . '/lib/widgets.php' );
 require_once( get_stylesheet_directory() . '/lib/plugins/tgm-plugin-activation/register-plugins.php' );
 
 //* Enqueue Responsive Menu, Google fonts, Match Height script, and dashicons
-add_action( 'wp_enqueue_scripts', 'glam_google_fonts' );
-function glam_google_fonts() {
-	wp_enqueue_script( 'glam-responsive-menu', get_bloginfo( 'stylesheet_directory' ) . '/js/responsive-menu.js', array( 'jquery' ), '1.0.0' );
+add_action( 'wp_enqueue_scripts', 'livebeyondsatisfied_google_fonts' );
+function livebeyondsatisfied_google_fonts() {
+	wp_enqueue_script( 'livebeyondsatisfied-responsive-menu', get_bloginfo( 'stylesheet_directory' ) . '/js/responsive-menu.js', array( 'jquery' ), '1.0.0' );
 	wp_enqueue_style( 'google-font', '//fonts.googleapis.com/css?family=Work+Sans:400,200,100,300,500,600,700,800,900|Arapey:400,400italic|Montserrat', array() );
 	wp_enqueue_script( 'match-height', get_stylesheet_directory_uri() . '/js/jquery.matchHeight-min.js', array( 'jquery' ), '1.0.0', true );
 	wp_enqueue_script( 'match-height-init', get_stylesheet_directory_uri() . '/js/matchheight-init.js', array( 'match-height' ), '1.0.0', true );
@@ -87,8 +87,8 @@ remove_action( 'genesis_after_header', 'genesis_do_nav' );
 add_action( 'genesis_before', 'genesis_do_nav' );
 
 //* Add search form to navigation
-add_filter( 'wp_nav_menu_items', 'glam_primary_nav_extras', 10, 2 );
-function glam_primary_nav_extras( $menu, $args ) {
+add_filter( 'wp_nav_menu_items', 'livebeyondsatisfied_primary_nav_extras', 10, 2 );
+function livebeyondsatisfied_primary_nav_extras( $menu, $args ) {
 	//* Change 'primary' to 'secondary' to add extras to the secondary navigation menu
 	if ( 'primary' !== $args->theme_location ) {
 		return $menu;
@@ -103,22 +103,22 @@ function glam_primary_nav_extras( $menu, $args ) {
 }
 
 //* Customize search form input box text
-add_filter( 'genesis_search_text', 'glam_search_text' );
-function glam_search_text( $text ) {
+add_filter( 'genesis_search_text', 'livebeyondsatisfied_search_text' );
+function livebeyondsatisfied_search_text( $text ) {
 	return esc_attr( 'Search...' );
 }
 
 //* Modify the Genesis content limit read more link
-add_filter( 'get_the_content_more_link', 'glam_read_more_link' );
-function glam_read_more_link() {
+add_filter( 'get_the_content_more_link', 'livebeyondsatisfied_read_more_link' );
+function livebeyondsatisfied_read_more_link() {
 	return '... <a class="more-link" href="' . get_permalink() . '">View Post</a>';
 }
 
 //* Add widget to secondary navigation
-add_filter( 'genesis_nav_items', 'glam_social_icons', 10, 2 );
-add_filter( 'wp_nav_menu_items', 'glam_social_icons', 10, 2 );
+add_filter( 'genesis_nav_items', 'livebeyondsatisfied_social_icons', 10, 2 );
+add_filter( 'wp_nav_menu_items', 'livebeyondsatisfied_social_icons', 10, 2 );
 
-function glam_social_icons($menu, $args) {
+function livebeyondsatisfied_social_icons($menu, $args) {
 	$args = (array)$args;
 	if ( 'primary' !== $args['theme_location'] )
 		return $menu;
@@ -129,8 +129,8 @@ function glam_social_icons($menu, $args) {
 }
 
 //* Hooks widget area before content
-add_action( 'genesis_before_content', 'glam_cta_widget', 2  );
-function glam_cta_widget() {
+add_action( 'genesis_before_content', 'livebeyondsatisfied_cta_widget', 2  );
+function livebeyondsatisfied_cta_widget() {
 
     genesis_widget_area( 'cta-widget', array(
 		'before' => '<div class="cta-widget widget-area"><div class="wrap">',
@@ -140,8 +140,8 @@ function glam_cta_widget() {
 }
 
 //* Customize the Post Info Function
-add_filter( 'genesis_post_info', 'glam_post_info_filter' );
-function glam_post_info_filter( $post_info ) {
+add_filter( 'genesis_post_info', 'livebeyondsatisfied_post_info_filter' );
+function livebeyondsatisfied_post_info_filter( $post_info ) {
 
 	$post_info = '[post_categories before="in "] on [post_date format="m/d/y"]';
     return $post_info;
@@ -149,8 +149,8 @@ function glam_post_info_filter( $post_info ) {
 }
 
 //* Customize the Post Meta function
-add_filter( 'genesis_post_meta', 'glam_post_meta_filter' );
-function glam_post_meta_filter( $post_meta ) {
+add_filter( 'genesis_post_meta', 'livebeyondsatisfied_post_meta_filter' );
+function livebeyondsatisfied_post_meta_filter( $post_meta ) {
 
     $post_meta = '[post_comments zero="Add a Comment" one="1 Comment" more="% Comments"]';
     return $post_meta;
@@ -168,8 +168,8 @@ add_theme_support ( 'genesis-menus' , array (
 ) );
 
 //* Hook menu in footer
-add_action( 'genesis_after', 'glam_footer_menu', 13 );
-function glam_footer_menu() {
+add_action( 'genesis_after', 'livebeyondsatisfied_footer_menu', 13 );
+function livebeyondsatisfied_footer_menu() {
 
 	printf( '<nav %s>', genesis_attr( 'nav-footer' ) );
 
@@ -199,7 +199,7 @@ add_action( 'genesis_after', 'genesis_do_footer', 12 );
 add_action( 'genesis_after', 'genesis_footer_markup_close', 14 ); 
 
 //* Setup widget count
-function glam_count_widgets( $id ) {
+function livebeyondsatisfied_count_widgets( $id ) {
 	global $sidebars_widgets;
 
 	if ( isset( $sidebars_widgets[ $id ] ) ) {
@@ -208,8 +208,8 @@ function glam_count_widgets( $id ) {
 
 }
 
-function glam_widget_area_class( $id ) {
-	$count = glam_count_widgets( $id );
+function livebeyondsatisfied_widget_area_class( $id ) {
+	$count = livebeyondsatisfied_count_widgets( $id );
 
 	$class = '';
 
@@ -243,8 +243,8 @@ function glam_widget_area_class( $id ) {
 }
 
 //* Modify the size of the Gravatar in the entry comments
-add_filter( 'genesis_comment_list_args', 'glam_comments_gravatar' );
-function glam_comments_gravatar( $args ) {
+add_filter( 'genesis_comment_list_args', 'livebeyondsatisfied_comments_gravatar' );
+function livebeyondsatisfied_comments_gravatar( $args ) {
 
 	$args['avatar_size'] = 96;
 
@@ -253,17 +253,17 @@ function glam_comments_gravatar( $args ) {
 }
 
 //* Modify the size of the Gravatar in the author box
-add_filter( 'genesis_author_box_gravatar_size', 'glam_author_box_gravatar' );
-function glam_author_box_gravatar( $size ) {
+add_filter( 'genesis_author_box_gravatar_size', 'livebeyondsatisfied_author_box_gravatar' );
+function livebeyondsatisfied_author_box_gravatar( $size ) {
 
 	return 125;
 
 }
 
 //* Add widget area between and after 3 posts
-add_action( 'genesis_after_entry', 'glam_between_posts_area' );
+add_action( 'genesis_after_entry', 'livebeyondsatisfied_between_posts_area' );
 
-function glam_between_posts_area() {
+function livebeyondsatisfied_between_posts_area() {
 global $loop_counter;
 
 $loop_counter++;
@@ -284,8 +284,8 @@ $loop_counter = 10;
 }
 
 //* Remove comment form allowed tags
-add_filter( 'comment_form_defaults', 'glam_remove_comment_form_allowed_tags' );
-function glam_remove_comment_form_allowed_tags( $defaults ) {
+add_filter( 'comment_form_defaults', 'livebeyondsatisfied_remove_comment_form_allowed_tags' );
+function livebeyondsatisfied_remove_comment_form_allowed_tags( $defaults ) {
 	$defaults['comment_notes_after'] = '';
 	return $defaults;
 }
@@ -300,7 +300,7 @@ function custom_footer_creds_text() {
     echo '<div class="creds"><p>';
     echo 'Copyright &copy; ';
     echo date('Y');
-    echo ' &middot; <a target="_blank" href="http://restored316designs.com/themes">glam theme</a> by <a target="_blank" href="http://www.restored316designs.com">Restored 316</a>';
+    echo ' &middot; <a target="_blank" href="http://restored316designs.com/themes">livebeyondsatisfied theme</a> by <a target="_blank" href="http://www.restored316designs.com">Restored 316</a>';
     echo '</p></div>';
 
 }
@@ -331,9 +331,22 @@ if (!function_exists('loop_columns')) {
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 );
 
 //* Add WooCommerce Gallery Options
-add_action( 'after_setup_theme', 'glam_woo_gallery' );
-function glam_woo_gallery() {
+add_action( 'after_setup_theme', 'livebeyondsatisfied_woo_gallery' );
+function livebeyondsatisfied_woo_gallery() {
 	add_theme_support( 'wc-product-gallery-zoom' );
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
 }
+
+//* Add widget areas for Landing page
+function livebeyondsatisfied_widgets_init() {
+    register_sidebar( array(
+        'name' => __( 'Landing Page', 'livebeyondsatisfied' ),
+        'id' => 'landing-page',
+        'before_widget' => '<div class="landing">',
+        'after_widget' => '</div>',
+        'before_title' => '<h1>',
+        'after_title' => '</h1>',
+    ) );
+}
+add_action( 'widgets_init', 'livebeyondsatisfied_widgets_init' );

@@ -1,8 +1,8 @@
 <?php
 /**
- * This file adds the Theme Defaults to the Glam Theme.
+ * This file adds the Theme Defaults to the livebeyondsatisfied Theme.
  *
- * @package      Glam
+ * @package      livebeyondsatisfied
  * @subpackage   Customizations
  * @link         http://restored316designs.com/themes
  * @author       Lauren Gaige // Restored 316 LLC
@@ -11,8 +11,8 @@
  */
 
 //* Divine Theme Setting Defaults
-add_filter( 'genesis_theme_settings_defaults', 'glam_theme_defaults' );
-function glam_theme_defaults( $defaults ) {
+add_filter( 'genesis_theme_settings_defaults', 'livebeyondsatisfied_theme_defaults' );
+function livebeyondsatisfied_theme_defaults( $defaults ) {
 
 	$defaults['blog_cat_num']              = 5;
 	$defaults['content_archive']           = 'full';
@@ -28,8 +28,8 @@ function glam_theme_defaults( $defaults ) {
 }
 
 //* Divine Theme Setup
-add_action( 'after_switch_theme', 'glam_theme_setting_defaults' );
-function glam_theme_setting_defaults() {
+add_action( 'after_switch_theme', 'livebeyondsatisfied_theme_setting_defaults' );
+function livebeyondsatisfied_theme_setting_defaults() {
 
 	if( function_exists( 'genesis_update_settings' ) ) {
 
@@ -51,8 +51,8 @@ function glam_theme_setting_defaults() {
 }
 
 //* Divine Simple Social Icon Defaults
-add_filter( 'simple_social_default_styles', 'glam_social_default_styles' );
-function glam_social_default_styles( $defaults ) {
+add_filter( 'simple_social_default_styles', 'livebeyondsatisfied_social_default_styles' );
+function livebeyondsatisfied_social_default_styles( $defaults ) {
 
 	$args = array(
 		'alignment'              => 'aligncenter',
@@ -75,8 +75,8 @@ function glam_social_default_styles( $defaults ) {
 }
 
 //* Set Genesis Responsive Slider defaults
-add_filter( 'genesis_responsive_slider_settings_defaults', 'glam_responsive_slider_defaults' );
-function glam_responsive_slider_defaults( $defaults ) {
+add_filter( 'genesis_responsive_slider_settings_defaults', 'livebeyondsatisfied_responsive_slider_defaults' );
+function livebeyondsatisfied_responsive_slider_defaults( $defaults ) {
 
 	$args = array(
 		'location_horizontal'             => 'right',
@@ -86,7 +86,7 @@ function glam_responsive_slider_defaults( $defaults ) {
 		'slideshow_excerpt_content'       => 'full',
 		'slideshow_excerpt_width'         => '40',
 		'slideshow_height'                => '400',
-		'slideshow_more_text'             => __( 'Read More', 'glam' ),
+		'slideshow_more_text'             => __( 'Read More', 'livebeyondsatisfied' ),
 		'slideshow_title_show'            => 1,
 		'slideshow_width'                 => '700',
 	);
@@ -97,8 +97,8 @@ function glam_responsive_slider_defaults( $defaults ) {
 }
 
 //* Set option to show posts on front page after switching themes
-add_action( 'after_switch_theme', 'glam_theme_reading_defaults' );
-function glam_theme_reading_defaults() {
+add_action( 'after_switch_theme', 'livebeyondsatisfied_theme_reading_defaults' );
+function livebeyondsatisfied_theme_reading_defaults() {
 	if ( 'posts' != get_option( 'show_on_front' ) ) {
 	
 		update_option( 'show_on_front', 'posts' );

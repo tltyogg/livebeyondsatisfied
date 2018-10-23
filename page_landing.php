@@ -1,8 +1,8 @@
 <?php
 /**
- * This file adds the Landing Page to the Glam Theme.
+ * This file adds the Landing Page to the Live Beyond Satisfied Theme.
  *
- * @package      Glam
+ * @package      livebeyondsatisfied
  * @link         http://restored316designs.com/themes
  * @author       Lauren Gaige // Restored 316 LLC
  * @copyright    Copyright (c) 2015, Restored 316 LLC, Released 02/03/2016
@@ -14,10 +14,10 @@ Template Name: Landing
 */
 
 //* Add landing body class to the head
-add_filter( 'body_class', 'glam_add_landing_body_class' );
-function glam_add_landing_body_class( $classes ) {
+add_filter( 'body_class', 'livebeyondsatisfied_add_landing_body_class' );
+function livebeyondsatisfied_add_landing_body_class( $classes ) {
 
-	$classes[] = 'glam-landing';
+	$classes[] = 'livebeyondsatisfied-landing';
 	return $classes;
 
 }
@@ -25,15 +25,37 @@ function glam_add_landing_body_class( $classes ) {
 //* Force full width content layout
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
+
+function livebeyondsatisfied_home_sections() {
+
+if( !is_paged()) {
+
+		echo '<div class="home-top">';
+
+		genesis_widget_area( 'home-top-slider', array(
+			'before' => '<div class="home-top-slider widget-area">',
+			'after'  => '</div>',
+		) );
+
+		echo '</div>';
+
+		genesis_widget_area( 'home-flexible', array(
+		'before' => '<div id="home-flexible" class="home-flexible"><div class="widget-area ' . livebeyondsatisfied_widget_area_class( 'home-flexible' ) . '"><div class="wrap">',
+		'after'  => '</div></div></div>',
+	) );
+		
+}}
 //* Remove site header elements
-remove_action( 'genesis_header', 'genesis_header_markup_open', 5 );
+/* remove_action( 'genesis_header', 'genesis_header_markup_open', 5 );
 remove_action( 'genesis_header', 'genesis_do_header' );
 remove_action( 'genesis_header', 'genesis_header_markup_close', 15 );
 remove_action( 'genesis_before', 'widget_above_header'  );
 
+
 //* Remove navigation
 remove_action( 'genesis_before', 'genesis_do_nav' );
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
+*/
 
 //* Remove breadcrumbs
 remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
@@ -45,10 +67,11 @@ remove_action( 'genesis_after', 'genesis_footer_widget_areas' );
 remove_action( 'genesis_after', 'genesis_footer_markup_open', 11 );
 remove_action( 'genesis_after', 'genesis_do_footer', 12 );
 remove_action( 'genesis_after', 'genesis_footer_markup_close', 14 ); 
-remove_action( 'genesis_after', 'glam_footer_menu', 13 );
+remove_action( 'genesis_after', 'livebeyondsatisfied_footer_menu', 13 );
 
 //* Remove widget area before content
-remove_action( 'genesis_before_content', 'glam_cta_widget', 2  );
+remove_action( 'genesis_before_content', 'livebeyondsatisfied_cta_widget', 2  );
 
 //* Run the Genesis loop
 genesis();
+

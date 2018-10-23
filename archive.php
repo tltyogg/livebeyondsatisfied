@@ -1,8 +1,8 @@
 <?php
 /**
- * This file adds the Custom Archives to the Glam Theme.
+ * This file adds the Custom Archives to the livebeyondsatisfied Theme.
  *
- * @package      Glam
+ * @package      livebeyondsatisfied
  * @link         http://restored316designs.com/themes
  * @author       Lauren Gaige // Restored 316 LLC
  * @copyright    Copyright (c) 2015, Restored 316 LLC, Released 02/03/2016
@@ -21,8 +21,8 @@ function archives_body_class( $classes ) {
 }
 
 //* Display as Columns
-add_filter( 'post_class', 'glam_grid_post_class' );
-function glam_grid_post_class( $classes ) {
+add_filter( 'post_class', 'livebeyondsatisfied_grid_post_class' );
+function livebeyondsatisfied_grid_post_class( $classes ) {
 
 	if ( is_main_query() ) { // conditional to ensure that column classes do not apply to Featured widgets
 		$columns = 3; // Set the number of columns here
@@ -39,8 +39,8 @@ function glam_grid_post_class( $classes ) {
 }
 
 //* Remove Featured image (if set in Theme Settings)
-add_filter( 'genesis_pre_get_option_content_archive_thumbnail', 'glam_no_post_image' );
-function glam_no_post_image() {
+add_filter( 'genesis_pre_get_option_content_archive_thumbnail', 'livebeyondsatisfied_no_post_image' );
+function livebeyondsatisfied_no_post_image() {
 	return '0';
 }
 
@@ -57,14 +57,14 @@ remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
 remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
 
 //* Remove between posts widget
-remove_action( 'genesis_after_entry', 'glam_between_posts_area' );
+remove_action( 'genesis_after_entry', 'livebeyondsatisfied_between_posts_area' );
 
 //* Add the featured image before post title
-add_action( 'genesis_entry_header', 'glam_archive_grid', 9 );
-function glam_archive_grid() {
+add_action( 'genesis_entry_header', 'livebeyondsatisfied_archive_grid', 9 );
+function livebeyondsatisfied_archive_grid() {
 
     if ( $image = genesis_get_image( 'format=url&size=blog-square-featured' ) ) {
-        printf( '<div class="glam-featured-image"><a href="%s" rel="bookmark"><img src="%s" alt="%s" /></a></div>', get_permalink(), $image, the_title_attribute( 'echo=0' ) );
+        printf( '<div class="livebeyondsatisfied-featured-image"><a href="%s" rel="bookmark"><img src="%s" alt="%s" /></a></div>', get_permalink(), $image, the_title_attribute( 'echo=0' ) );
 
     }
 

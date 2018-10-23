@@ -1,7 +1,7 @@
 /*
 	Theme Name: Live Beyond Satisfied Theme
 	Theme URI: http://restored316designs.com/themes
-	Description: Built off od the Glam Theme for Genesis Framework by Lauren Gaige of Restored 316.
+	Description: Built off od the livebeyondsatisfied Theme for Genesis Framework by Lauren Gaige of Restored 316.
 	Author: Restored 316 Designs // Lauren Gaige
 	Author URI: http://www.restored316designs.com/
 	Copyright: Copyright (c) 2015, Restored 316 LLC, Released 02/03/2016
@@ -485,7 +485,7 @@ Structure and Layout
 	margin: 75px auto 15px;
 }
 
-.glam-landing .site-container {
+.livebeyondsatisfied-landing .site-container {
 	max-width: 800px;
 }
 
@@ -494,7 +494,7 @@ Structure and Layout
 	margin: 0px auto;
 }
 
-.glam-home .site-inner {
+.livebeyondsatisfied-home .site-inner {
 	overflow: visible;
 }
 
@@ -704,7 +704,7 @@ img.alignright,
 	margin: 0 0 30px;
 }
 
-.glam-home .breadcrumb {
+.livebeyondsatisfied-home .breadcrumb {
      margin: 0;
 }
 
@@ -833,6 +833,39 @@ Widgets
 
 .after-entry .widget {
 	margin: 30px 0;
+}
+
+/* Landing Page
+--------------------------------------------- */
+.widget_media_image {
+    display: inline-flex;
+    padding:10px;
+    flex-wrap: wrap;
+}
+
+.landing-widget-area {
+    display:flex;
+    float:right;
+    vertical-align: bottom;
+
+}
+
+.livebeyondsatisfied-landing .site-container {
+    background-image: url(http://localhost/SLC-rebrand/wp-content/uploads/2018/10/SaraPhotos141.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-width:1200px;
+    margin-bottom: 0px;
+    padding: 200px;
+}
+
+.livebeyondsatisfied-landing .site-container header {
+    display: none;
+}
+
+div .landing-logo {
+    position: relative;
+    top: -150px;
 }
 
 /*
@@ -1735,11 +1768,11 @@ Content Area
 	margin: 10px 0 0;
 }
 
-.glam-featured-image img {
+.livebeyondsatisfied-featured-image img {
 	vertical-align: top;
 }
 
-.glam-featured-image:hover img {
+.livebeyondsatisfied-featured-image:hover img {
 	opacity: 0.7;
 }
 
@@ -1755,7 +1788,7 @@ Content Area
 	padding: 30px 0;
 }
 
-.glam-home .entry .entry-content {
+.livebeyondsatisfied-home .entry .entry-content {
 	padding: 0;
 }
 
