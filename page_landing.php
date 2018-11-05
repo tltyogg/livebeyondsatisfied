@@ -25,28 +25,8 @@ function livebeyondsatisfied_add_landing_body_class( $classes ) {
 //* Force full width content layout
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
-
-function livebeyondsatisfied_home_sections() {
-
-if( !is_paged()) {
-
-		echo '<div class="home-top">';
-
-		genesis_widget_area( 'home-top-slider', array(
-			'before' => '<div class="home-top-slider widget-area">',
-			'after'  => '</div>',
-		) );
-
-		echo '</div>';
-
-		genesis_widget_area( 'home-flexible', array(
-		'before' => '<div id="home-flexible" class="home-flexible"><div class="widget-area ' . livebeyondsatisfied_widget_area_class( 'home-flexible' ) . '"><div class="wrap">',
-		'after'  => '</div></div></div>',
-	) );
-		
-}}
 //* Remove site header elements
-/* remove_action( 'genesis_header', 'genesis_header_markup_open', 5 );
+remove_action( 'genesis_header', 'genesis_header_markup_open', 5 );
 remove_action( 'genesis_header', 'genesis_do_header' );
 remove_action( 'genesis_header', 'genesis_header_markup_close', 15 );
 remove_action( 'genesis_before', 'widget_above_header'  );
@@ -55,7 +35,7 @@ remove_action( 'genesis_before', 'widget_above_header'  );
 //* Remove navigation
 remove_action( 'genesis_before', 'genesis_do_nav' );
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-*/
+
 
 //* Remove breadcrumbs
 remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );

@@ -31,10 +31,6 @@ remove_action( 'genesis_header', 'genesis_do_header' );
 remove_action( 'genesis_header', 'genesis_header_markup_close', 15 );
 remove_action( 'genesis_before', 'widget_above_header'  );
 
-//* Remove navigation
-remove_action( 'genesis_before', 'genesis_do_nav' );
-remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-
 //* Remove breadcrumbs
 remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
 
@@ -50,10 +46,11 @@ remove_action( 'genesis_after', 'livebeyondsatisfied_footer_menu', 13 );
 //* Remove widget area before content
 remove_action( 'genesis_before_content', 'livebeyondsatisfied_cta_widget', 2  );
 
-//* Run the Genesis loop
-genesis();
-
 //* Add widget area to Landing Page
 if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('landing-page') ) : 
  
 endif;
+
+//* Run the Genesis loop
+genesis();
+

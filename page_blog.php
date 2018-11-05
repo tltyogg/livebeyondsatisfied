@@ -81,6 +81,13 @@ function livebeyondsatisfied_show_featured_image() {
 	echo '<div class="home-featured-image"><a href="' . get_permalink() . '">' . $image .'</a></div>';
 }
 
+remove_action( 'genesis_before', 'widget_above_header'  );
+
+//* Add widget area to Landing Page
+if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('landing-page') ) : 
+ 
+endif;
+
 //* Remove entry meta
 remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_open', 5 );
 remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_close', 15 );

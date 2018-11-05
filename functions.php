@@ -51,6 +51,7 @@ add_image_size( 'blog-square-featured', 400, 400, TRUE );
 add_image_size( 'blog-vertical-featured', 800, 1200, TRUE );
 add_image_size( 'sidebar-featured', 125, 125, TRUE );
 add_image_size( 'large-featured', 850, 475, TRUE );
+add_image_size( 'blog-featured', 600, 300, TRUE);
 
 //* Add support for custom background
 add_theme_support( 'custom-background' );
@@ -62,7 +63,7 @@ add_theme_support( 'genesis-after-entry-widget-area' );
 add_theme_support( 'custom-header', array(
 	'width'           => 900,
 	'height'          => 400,
-	'flex-width'      => false,
+	'flex-width'      => true,
 	'flex-height'     => false,
 	'header-selector' => '.site-title a',
 	'header-text'     => false,
@@ -350,3 +351,42 @@ function livebeyondsatisfied_widgets_init() {
     ) );
 }
 add_action( 'widgets_init', 'livebeyondsatisfied_widgets_init' );
+
+
+
+//* Add widget areas for Blog page
+genesis_register_sidebar( array(
+        'id' => 'before-blog',
+        'name' => __( 'Before Blog Widget', 'livebeyondsatisfied' ),
+        'description' =>  __( 'This is the before post widget area on the blog page only.', 'wpsites' ),
+        ) );
+add_action( 'genesis_after_header', 'livebeyondsatisfied_before_blog_widget', 9 );
+
+function livebeyondsatisfied_before_blog_widget() {
+    if ( !is_front_page() && is_home() && is_active_sidebar('before-blog') )  {
+        genesis_widget_area( 'before-blog', array(
+            'before' => '<div class="before-blog widget-area">',
+            'after'  => '</div>',
+        ));
+    }
+}
+
+// Display Social Warfare sharing buttons below content when content limit is set
+add_action( 'genesis_entry_content', 'sk_social_warfare' );
+function sk_social_warfare() {
+
+	// if we are on a single page, abort.
+	if ( is_singular() ) {
+		return;
+	}
+
+	// if Social Warfare plugin is active, display its sharing buttons
+	if ( function_exists( 'social_warfare' ) ) {
+    		social_warfare();
+	}
+
+}
+
+
+
+
